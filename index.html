@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUTL</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="title-container">
+        <h1>FUTL</h1>
+        <h2>Can you guess the player?</h2>
+    </div>
+    <div class="info-container">
+        <div class="score-container">
+            <h3>SCORE</h3>
+            <h1 id="score">??</h1>
+        </div>
+        <div class="hint-container">
+            <p>HINTS</p>
+            <p id="hints"></p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="start-button">START</button>
+    </div>
+    <div id="guess-container">
+        <p>Enter a guess here:</p>
+        <input id="text-input" type="text">
+        <button id="guess-button">GUESS</button>
+        <!-- <p>guesses:</p> -->
+        <div class="guesses">
+            <!-- <p id="bad-guesses">Trinity Rodman</p> -->
+            <p id="bad-guesses"></p>
+        </div>
+    </div>
+    <div id="play-again-container">
+        <button id="play-again">PLAY AGAIN?</button>
+    </div>
+<script type="module" src="js/gameLogic.js"></script>
+
+</body>
+</html>
