@@ -10,6 +10,7 @@ body {
     text-align: center;
 
     font-family: 'Courier New', Courier, monospace;
+    font-family: Arial; 
 }
 .info-container {
     display: flex; 
@@ -22,6 +23,7 @@ body {
     padding: 20px; 
 
     gap: 40px; 
+    border-radius: 30px; 
 
     /* width: 300px; */
 }
@@ -29,10 +31,14 @@ body {
     color: darkgreen;
     background-color: lightgreen;
     padding: 20px; 
+    border-radius: 10px; 
+
 }
 .hint-container {
     width: 200px; 
     text-align: center; 
+
+    color: rgb(135, 126, 114);
 }
 #hints {
     /* text-align: left; */
