@@ -3,7 +3,7 @@ export const cols = [1, 5, 6, 8, 7, 12, 17, 21, 22, 27, 32, 33, 40, 41, 42, 43, 
 export function csvToArray(columnsToInclude = cols) {
     console.log("Loading CSV file!");
 
-    return fetch('data/players.csv')  // Replace '/data/players.csv' with the path to your CSV file
+    return fetch('../data/players.csv')  // Replace '/data/players.csv' with the path to your CSV file
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
