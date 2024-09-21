@@ -19,8 +19,6 @@ var guessContainer = document.getElementById('guess-container');
 var textInput = document.getElementById('text-input');
 var guessButton = document.getElementById('guess-button');
 
-
-
 // CLICK START
 startButton.addEventListener('click', function() {
     console.log('button clicked');
@@ -68,7 +66,7 @@ function gameLoop(player) {
     guessButton.addEventListener('click', () => {
         var isCorrectGuess = handleUserGuess(player);
 
-        if (!isCorrectGuess) {
+        if (!isCorrectGuess && (numHints < 10 )) {
             guess = textInput.value.trim().toLowerCase();
             console.log("new score: "+score);
             updateDOM();
@@ -149,19 +147,24 @@ function handleUserGuess(player) {
         alert("GAME OVER. YOU WIN!!! THE CORRECT ANSWER WAS: " + displayAnswer);
         return true; 
     }
-    if (numHints == 10) {
+    if (numHints >= 10) {
         alert("GAME OVER. YOU LOSE!! THE CORRECT ANSWER WAS: " + displayAnswer);
         endGame();
+        return false; 
     }
-    alert("TRY AGAIN.");
-    return false; 
+    else {
+        alert("TRY AGAIN.");
+        return false; 
+    }
 }
 
 function endGame() {
     console.log("ENDING GAME... Thanks for playing!!!");
 
     // hide guess container
-    guessContainer.style.display = 'none';
+    var guessWrapper = document.getElementById('guess-container');
+    
+    guessWrapper.style.display = 'none';
 
     var playAgainButton = document.getElementById('play-again');
     playAgainButton.style.display = 'block';
@@ -172,7 +175,6 @@ function endGame() {
 }
 
 function updateIncorrectGuesses(guess) {
-    var userInput = textInput.value.trim(); // Get and trim the input to remove any extra spaces
     var badGuesses = document.getElementById('bad-guesses');
 
     badGuesses.innerHTML += "<br>" + guess; 
