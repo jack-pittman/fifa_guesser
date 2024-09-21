@@ -86,7 +86,18 @@ function showNewHint(player) {
 
     if (numHints <= MAX_HINTS) {
         console.log('number of hints:' + numHints);
-        hints.innerHTML += "<br><strong>" + numHints + "</strong>. " + getRandomHint(player) + "\n";
+
+        var randomHint = getRandomHint(player);
+
+        if (randomHint === undefined) {
+            // handle undefined hint
+            var newRandomHint = getRandomHint(player);
+            hints.innerHTML += "<br><strong>" + numHints + "</strong>. " + newRandomHint + "\n";
+        }
+        else {
+            hints.innerHTML += "<br><strong>" + numHints + "</strong>. " + randomHint + "\n";
+            console.log("output from getRandomHint: " + randomHint);
+        }
     }
 }
 
@@ -121,12 +132,13 @@ function getRandomHint(player) {
 
     if (randomCategory === null || randomCategory === undefined || randomCategory === "") {
         usedHints.push(randomIndex);
-        getRandomHint(player);
+        // getRandomHint(player);
     }
-
-    console.log("Random Category: "+ randomCategory + "Matching Player Attribute: " + playerCategories[randomIndex]);
-    
-    return "<strong>" + randomCategory+ ": </strong>" + playerCategories[randomIndex];
+    else {
+        console.log("Random Category: "+ randomCategory + "Matching Player Attribute: " + playerCategories[randomIndex]);
+        
+        return "<strong>" + randomCategory.split('_').join(' ') + ": </strong>" + playerCategories[randomIndex];
+    }
 }
 
 function handleUserGuess(player) {
