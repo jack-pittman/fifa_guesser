@@ -41,25 +41,28 @@ body::before {
     z-index: -1; /* Ensure the background stays behind the content */
 }
 button {
+    /* font-family: 'Courier New', Courier, monospace; */
     background-color: transparent;
     background-color: black;
     /* background-color: rgb(135, 126, 114); */
     color: antiquewhite;
     padding: 10px; 
-    border: solid black 1px; 
+    border: solid antiquewhite 1px; 
     cursor: pointer; 
     border-radius: 10px; 
     /* opacity: 0.7;  */
 
-    /* font-weight: bold;  */
+    font-weight: bold; 
     transition: color 0.2s, background-color 0.2s, border 0.2s;
 
 }
 button:hover {
-    /* background-color: white;
-    color: black;  */
-    /* color: rgb(92, 85, 77); */
+    /* background-color: antiquewhite; */
+    color: black; 
+    color: rgb(143, 133, 122);
+    color: #90ee90;
     border: solid antiquewhite 1px;
+    border: solid #90ee90 1px;
 }
 /* .button-container {
     margin-top: 0px; 
