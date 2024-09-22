@@ -29,7 +29,7 @@ body::before {
     height: 100%;
 
     /* Background image with blur */
-    background-image: url('/media/background.jpg'); /* Path to your background image */
+    background-image: url('https://jack-pittman.github.io/fifa_guesser/media/background.jpg'); /* Path to your background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
