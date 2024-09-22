@@ -13,6 +13,8 @@ var numHints = 0;  // see line 25
 var usedHints = [0, 1, 2];
 
 var startButton = document.getElementById('start-button');
+
+
 var hint = document.getElementById('hints');
 var scoreText = document.getElementById('score');
 var guessContainer = document.getElementById('guess-container');
@@ -53,7 +55,22 @@ function updateDOM() {
     // show guess interface
     guessContainer.style.display = 'block';
     startButton.style.display = 'none';
+    // startButtonContainer.style.display = 'none';
     scoreText.innerText = score;
+    setScoreColor();
+}
+
+function setScoreColor() {
+    var scoreContainer = document.getElementById('score-container');
+
+    if (score < 90) {
+        scoreContainer.style.color = 'rgb(143, 104, 7)';
+        scoreContainer.style.backgroundColor = 'rgb(239, 216, 83)';
+    }
+    if (score < 80) {
+        scoreContainer.style.color = 'rgb(143, 59, 7)';
+        scoreContainer.style.backgroundColor = 'rgb(240, 160, 156)';
+    }
 }
 
 function gameLoop(player) {
@@ -67,13 +84,12 @@ function gameLoop(player) {
         var isCorrectGuess = handleUserGuess(player);
 
         if (!isCorrectGuess && (numHints < 10 )) {
+            score -= 3; 
             guess = textInput.value.trim().toLowerCase();
             console.log("new score: "+score);
             updateDOM();
             updateIncorrectGuesses(guess);
             showNewHint(player);
-            
-            score -= 3; 
         }
         else {
             endGame();
