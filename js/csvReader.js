@@ -1,4 +1,4 @@
-export const cols = [1, 5, 6, 8, 7, 12, 17, 21, 22, 27, 32, 33, 40, 41, 42, 43, 44, 45, 46];
+export const cols = [1, 5, 6, 7, 8, 12, 17, 19, 22, 27, 31, 33, 40];
 
 export function csvToArray(columnsToInclude = cols) {
     console.log("Loading CSV file!");
